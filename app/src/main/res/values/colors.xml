@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#00AEEF</color>
     <color name="blue">#00AEEF</color>
+    <color name="purple_status_bar">#492981</color>
 
 </resources>

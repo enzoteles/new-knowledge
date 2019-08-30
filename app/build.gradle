@@ -41,4 +41,7 @@ dependencies {
     //parcel
     implementation 'org.parceler:parceler-api:1.1.12'
     kapt 'org.parceler:parceler:1.1.12'
+
+    //progress
+    implementation "me.zhanghai.android.materialprogressbar:library:1.4.2"
 }
