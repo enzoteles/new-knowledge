@@ -29,10 +29,12 @@ class Capitulo3 : AppCompatActivity() {
         listaUser.add(s2)
         listaUser.add(s3)
 
-        val value = 600.00f
+        val s = 1.215752191E7.toPtBrRealString()
+
+        val value = String.format(getString(R.string.tv_name), s)
 
         tv_name.run {
-            text = String.format(getString(R.string.tv_name), value)
+            text = value
         }
 
         //técnica para fazer trabalhar com parcelable no objeto
