@@ -76,7 +76,7 @@ class Capitulo8Fragment : Fragment() {
     override fun onStop() {
         super.onStop()
         LogWrapperUtil.apply {
-            info("onStop")
+            info("onStop.Frag")
         }
     }
 

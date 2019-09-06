@@ -4,8 +4,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
-
-object FragmentManagerUtil : OnFragmentManager {
+/**
+ * Create by Enzo Teles
+ * */
+object FragmentManagerUtil : OnFragmentManager{
 
     var transaction: FragmentTransaction? = null
 

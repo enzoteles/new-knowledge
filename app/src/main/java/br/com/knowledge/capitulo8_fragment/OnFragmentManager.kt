@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 
-interface OnFragmentManager {
+interface OnFragmentManager{
 
     fun addFragment(
         layoutId: Int,
@@ -14,6 +14,15 @@ interface OnFragmentManager {
         supportFragmentManager: FragmentManager
     )
 
-    fun replaceFragment(layoutId: Int, fragment: Fragment, tag: String, backStack: Boolean, supportFragmentManager: FragmentManager)
-    fun removeFragment(fragment: Fragment, supportFragmentManager: FragmentManager)
+    fun replaceFragment(
+        layoutId: Int,
+        fragment: Fragment,
+        tag: String,
+        backStack: Boolean,
+        supportFragmentManager: FragmentManager
+    )
+    fun removeFragment(
+        fragment: Fragment,
+        supportFragmentManager: FragmentManager
+    )
 }
