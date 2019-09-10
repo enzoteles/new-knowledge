@@ -1,9 +1,9 @@
-package br.com.knowledge.capitulo8_fragment
+package br.com.knowledge.capitulo8_fragment.util
 
 import android.util.Log
 
 
-object LogWrapperUtil: OnLogWrapper{
+object LogWrapperUtil: OnLogWrapper {
     override fun debug(value: String) {
         Log.d(OnLogWrapper.APPNAME, value)
     }

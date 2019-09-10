@@ -1,4 +1,4 @@
-package br.com.knowledge.capitulo8_fragment
+package br.com.knowledge.capitulo8_fragment.util
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction
 /**
  * Create by Enzo Teles
  * */
-object FragmentManagerUtil : OnFragmentManager{
+object FragmentManagerUtil : OnFragmentManager {
 
     var transaction: FragmentTransaction? = null
 

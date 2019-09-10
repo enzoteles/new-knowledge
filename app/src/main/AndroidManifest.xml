@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".capitulo8_fragment.Capitulo8">
+        <activity android:name=".capitulo8_fragment.ui.activity.Capitulo8">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".capitulo3_activity_intent.Capitulo3_Lista"/>
+        <activity android:name=".capitulo8_fragment.ui.activity.HotelDetailActivity"/>
     </application>
 
 </manifest>

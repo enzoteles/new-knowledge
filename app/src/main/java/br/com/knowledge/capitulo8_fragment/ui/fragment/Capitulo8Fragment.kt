@@ -1,4 +1,4 @@
-package br.com.knowledge.capitulo8_fragment
+package br.com.knowledge.capitulo8_fragment.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.knowledge.R
+import br.com.knowledge.capitulo8_fragment.util.FragmentManagerUtil
+import br.com.knowledge.capitulo8_fragment.util.LogWrapperUtil
+import kotlinx.android.synthetic.main.capitulo8_frag.*
 
 
-class Capitulo8Fragment2 : Fragment() {
+class Capitulo8Fragment : Fragment() {
 
 
     override fun onAttach(context: Context?) {
@@ -32,7 +35,7 @@ class Capitulo8Fragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.capitulo8_frag2, container, false)
+        val view = inflater.inflate(R.layout.capitulo8_frag, container, false)
         LogWrapperUtil.apply {
             info("onCreateView")
         }
@@ -43,6 +46,12 @@ class Capitulo8Fragment2 : Fragment() {
         super.onActivityCreated(savedInstanceState)
         LogWrapperUtil.apply {
             info("onActvityCreated")
+        }
+        btn_cap8.setOnClickListener {
+            FragmentManagerUtil.apply {
+                replaceFragment(R.id.content_capitulo8,
+                    Capitulo8Fragment2(), "capitulo8_frag2", true, requireActivity().supportFragmentManager)
+            }
         }
     }
 
@@ -70,7 +79,7 @@ class Capitulo8Fragment2 : Fragment() {
     override fun onStop() {
         super.onStop()
         LogWrapperUtil.apply {
-            info("onStop")
+            info("onStop.Frag")
         }
     }
 
@@ -97,3 +106,4 @@ class Capitulo8Fragment2 : Fragment() {
     }
 
 }
+

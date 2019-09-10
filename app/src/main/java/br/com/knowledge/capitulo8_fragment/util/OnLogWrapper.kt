@@ -1,4 +1,4 @@
-package br.com.knowledge.capitulo8_fragment
+package br.com.knowledge.capitulo8_fragment.util
 
 
 interface OnLogWrapper{
