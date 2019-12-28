@@ -10,7 +10,7 @@ interface OnLogWrapper{
     fun error(value:String)
 
     companion object {
-        const val APPNAME = "FRAGMENT"
+        const val APPNAME = "KOTLIN"
     }
 
 
