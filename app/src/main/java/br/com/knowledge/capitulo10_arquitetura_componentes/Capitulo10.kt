@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import br.com.knowledge.R
 import br.com.knowledge.capitulo8_fragment.util.LogWrapperUtil
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class Capitulo10 : AppCompatActivity(), Capitulo10Contract.View{
 
-    //presenter instanciado com o lazy
-    val presenter: Capitulo10Presenter by lazy {
-        Capitulo10Presenter(this, Capitulo10Interactor())
+    val presenter: Capitulo10Presenter by inject {
+        parametersOf(this)
     }
+    //presenter instanciado com o lazy
+   /* val presenter: Capitulo10Presenter by lazy {
+        Capitulo10Presenter(this, Capitulo10Interactor())
+    }*/
     //view model example
     val viewModel:Capitulo10ViewModel by lazy {
         ViewModelProviders.of(this,

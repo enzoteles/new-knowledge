@@ -1,8 +1,9 @@
 package br.com.knowledge.capitulo10_arquitetura_componentes
 
 import androidx.lifecycle.*
-import br.com.knowledge.capitulo8_fragment.util.LogWrapperUtil
+import org.koin.core.parameter.parametersOf
 import java.lang.IllegalArgumentException
+import org.koin.android.ext.android.inject
 
 
 class Capitulo10ViewModel(val prest: Capitulo10Contract.Presenter) : ViewModel(){
