@@ -7,9 +7,11 @@ import br.com.knowledge.R
 import br.com.knowledge.capitulo8_fragment.util.LogWrapperUtil
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
+import java.util.*
 
 class Capitulo10 : AppCompatActivity(), Capitulo10Contract.View{
 
+    var ac = 1
     val presenter: Capitulo10Presenter by inject {
         parametersOf(this)
     }
@@ -33,7 +35,17 @@ class Capitulo10 : AppCompatActivity(), Capitulo10Contract.View{
     }
 
     override fun responseApi() {
-        LogWrapperUtil.info("aqui")
+
+        for(ac in 1..6){
+            this.ac += this.ac + 1
+            var string = (1..60).random()
+            LogWrapperUtil.info("aqui===> $string")
+        }
+
     }
+
+
+    fun ClosedRange<Int>.random() =
+        Random().nextInt(endInclusive - start) +  start
 
 }
