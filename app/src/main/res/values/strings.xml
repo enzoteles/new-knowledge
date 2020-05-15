@@ -10,4 +10,26 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_text">Não</string>
+    <string name="component_one">Sim</string>
+
+    <!-- passo 01 motoboy -->
+    <string name="title_tela_solicitar_motoboy">Solicitar o entregador Loggi</string>
+
+    <string name="txt_title_motoboy_step01">Atenção</string>
+    <string name="txt_subtitle_motoboy_step01">Antes de solicitar o seu motoboy Loggi, certifique-se de que seu produto esteja preparado, embalado e totalmente pronto para a coleta.</string>
+    <string name="btn_solicitation_motoboy">Solicitar agora</string>
+
+    <!-- passo 02 motoboy bottom sheet-->
+    <string name="txt_title_motoboy">Aguarde</string>
+    <string name="txt_subtitle_motoboy">Estamos localizando um motoboy Loggi para você, acompanhe a sua solicitação no painel Super Link</string>
+    <string name="txt_aguardando_motoboy">Localizando motoboy Loggi</string>
+
+    <!-- passo 02 motoboy serviço não disponível-->
+    <string name="txt_title_motoboy_unavailable">Fora do horário de funcionamento<funcionamento></funcionamento></string>
+    <string name="txt_subtitle_motoboy_unavailable">A Loggi funciona das 08:00 às 21:59 durante toda a semana, por favor volte novamente dentro do horário de funcionamento </string>
+    <string name="txt_aguardando_motoboy_unavailable">Serviço não disponível</string>
+    <string name="ok" />
+
+
 </resources>

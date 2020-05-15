@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="custom_component_attributes">
+        <attr name="custom_component_title" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="bottom_sheet_generic_attributes">
+        <attr name="bs_toolbar_name" format="string" />
+        <attr name="bs_title" format="string" />
+        <attr name="bs_subtitle" format="string" />
+        <attr name="bs_image" format="integer" />
+        <attr name="bs_btn_name" format="string" />
+        <attr name="bs_btn_close_status" format="boolean" />
+        <attr name="bs_btn_ok_status" format="boolean" />
+    </declare-styleable>
+
+</resources>

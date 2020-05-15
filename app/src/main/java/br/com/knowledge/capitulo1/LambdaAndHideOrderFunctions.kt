@@ -25,6 +25,7 @@ class CalculadoraImp{
     fun soma(a: Int, b: Int, calculadora: Calculadora){
         var result = a + b
         calculadora.resultSoma(result)
+
     }
 
     //método usando o hide order function
@@ -37,5 +38,7 @@ class CalculadoraImp{
 interface Calculadora{
     fun resultSoma(result: Int)
 }
+
+
 
 

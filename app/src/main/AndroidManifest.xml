@@ -12,7 +12,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".capitulo10_arquitetura_componentes.Capitulo10">
+        <activity android:name=".widge.WidgeActvity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
