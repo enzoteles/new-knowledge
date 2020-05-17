@@ -16,7 +16,13 @@ class WidgeActvity  : AppCompatActivity() {
             .backstack(true)
             .layout(R.id.rootLayout)
             .addFragment(TesteFragment())
-            .build()
+            .fadeAnimation({
+
+            },{
+
+            })
+
+
 
     }
 }
