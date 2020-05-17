@@ -1,9 +1,5 @@
-package br.com.knowledge.capitulo1.help
+package br.com.knowledge.capitulo1.help.fileExtensions
 
-
-class FunctionsExtensionKotlin (){
-    companion object{}
-}
 
 fun main(){
 
@@ -12,8 +8,6 @@ fun main(){
     }
     val x = mutableListOf<Int>(9,3,4).first()
     println("$x")
-
-
 
 }
 
@@ -41,7 +35,14 @@ fun <T>MutableList<T>.int (index1: Int, index2:Int, callback: (Int) -> Unit){
     }
 }
 
-//extension with object companion
-fun FunctionsExtensionKotlin.Companion.StrintName() = "Sim"
+class FunctionsExtensionKotlin (){
+    companion object{}
+}
 
+
+//extension with object companion
+fun FunctionsExtensionKotlin.Companion.strintName() = "Sim"
+
+//extension with class
+fun FunctionsExtensionKotlin.scopeOfExtension() = 1
 
