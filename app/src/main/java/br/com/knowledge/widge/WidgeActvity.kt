@@ -14,6 +14,6 @@ class WidgeActvity  : AppCompatActivity() {
         setContentView(R.layout.widge_example)
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.content, FunExtencionFragment.newInstance(2)).commit()
+            .add(R.id.content, FunExtencionFragment.newInstance(5)).commit()
     }
 }

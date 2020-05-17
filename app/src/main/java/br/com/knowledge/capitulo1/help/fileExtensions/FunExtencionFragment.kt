@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.knowledge.R
 
@@ -26,19 +27,11 @@ class FunExtencionFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         this.arguments?.let {
             id = it.getInt(ID_CODE)
-            Log.i("FUN", "$id")
+            Toast.makeText(requireContext(), "$id", Toast.LENGTH_LONG).show()
         }
     }
 
 }
 
 
-fun FunExtencionFragment.Companion.newInstance(id: Int) = FunExtencionFragment()
-    .apply {
-    this.arguments = Bundle().apply {
-        putInt(ID_CODE, id)
-    }
-}
-
-const val ID_CODE = "ID_CODE"
 
