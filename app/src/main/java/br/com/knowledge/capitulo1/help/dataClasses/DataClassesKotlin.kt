@@ -3,7 +3,9 @@ package br.com.knowledge.capitulo1.help.dataClasses
 data class Casa(var name: String, var ige: Int)
 
 fun main(){
-    destructur()
+
+    println("$time")
+
 }
 
 fun copy(){
@@ -23,3 +25,6 @@ fun destructur(){
     println("$name --- $age")
 
 }
+
+val time: Long
+    get() = 5.toLong()
