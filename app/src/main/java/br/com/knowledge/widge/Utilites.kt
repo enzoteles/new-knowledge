@@ -14,8 +14,8 @@ import java.util.*
  * nunca string
  * @param item
  * */
-fun <T> moneyMask(item: T): String{
-    return "R$ ${item.extensionMaskMoney()}"
+fun <T> T.moneyMask(): String{
+        return "R$ ${extensionMaskMoney()}"
 }
 
 private fun <T> T.extensionMaskMoney(): String{
@@ -40,11 +40,8 @@ private fun <T> T.extensionMaskMoney(): String{
  * @param item
  * */
 
-fun <T> moneyWithoutMask(item: T): BigDecimal {
-    return item.toString().extensionWithDrawMaskMoney()
-}
 
-private fun <T> T.extensionWithDrawMaskMoney(): BigDecimal {
+fun <T> T.moneyWithoutMask(): BigDecimal {
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
     _brFormat.minimumFractionDigits = 2
     try {

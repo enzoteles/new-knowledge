@@ -1,6 +1,9 @@
 package br.com.knowledge.capitulo1.help.generics
 
 import br.com.concrete.canarinho.formatador.Formatador
+import br.com.knowledge.widge.moneyMask
+import br.com.knowledge.widge.moneyWithoutMask
+import br.com.knowledge.widge.phoneNumber
 import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 import java.math.BigDecimal
@@ -47,5 +50,7 @@ interface Compare<in T> {
 
 
 fun main() {
-
+    val p = "R$ 300,00"
+    val i = p.moneyWithoutMask()
+    print(i)
 }
