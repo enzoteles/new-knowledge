@@ -70,4 +70,6 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
 
     implementation 'org.koin:koin-android:1.0.1'
+
+    implementation "br.com.concrete:canarinho:2.0.0"
 }

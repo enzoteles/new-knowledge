@@ -77,3 +77,8 @@ interface MVP{
         fun requestApi(callback: (String)-> Unit)
     }
 }
+
+// quando é <out T> significa array<? extends Object>
+// quando é <in T> significa array<? super Object>
+// quando é <*> é que passa qualquer coisa
+
