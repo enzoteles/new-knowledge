@@ -49,6 +49,29 @@ interface Compare<in T> {
 
 
 fun main() {
-    val p = "R$ 100,00"
-    println(p.moneyWithoutMask())
+    Jogador("enzo", 37)
+        .code(123)
+        .build()
+
+}
+
+class Jogador constructor(name: String, age: Int){
+
+    var name: String?=  null
+    var age: Int?= null
+    var code:Int?= null
+
+    init {
+        this.name = name
+        this.age = age
+    }
+
+    fun code(code:Int): Jogador{
+        this.code = code
+        return this
+    }
+
+    fun build(){
+        print("aqui chegou o jogador.. ${this.name} -- ${this.age} -- ${this.code}")
+    }
 }
