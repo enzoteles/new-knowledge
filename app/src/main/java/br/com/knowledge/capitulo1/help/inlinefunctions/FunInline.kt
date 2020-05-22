@@ -26,6 +26,7 @@ class EnzoTeles(age: Int){
         return this
     }
 
+    //o inline é usada quando temos uma funçao sendo passada por parametro
     inline fun build(result: (String) -> Unit){ if(this.age == 37 )result("Enzo Teles") else result("Teles")}
 
 }
