@@ -9,16 +9,16 @@ import java.util.*
 
 /**
  * esse método coloca mascara de dinheiro em real
- * método só pode receber valores tipo:
+ * método só pode receber valores  que estão abaixo de Number, tipo:
  * int, float, double, bigdecimal etc.
  * nunca string
  * @param item
  * */
-fun <T> T.moneyMask(): String{
+fun <T: Number> T.moneyMask(): String{
         return "R$ ${extensionMaskMoney()}"
 }
 
-private fun <T> T.extensionMaskMoney(): String{
+private fun <T: Number> T.extensionMaskMoney(): String{
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
             as DecimalFormat
     _brFormat.minimumFractionDigits = 2
@@ -41,7 +41,7 @@ private fun <T> T.extensionMaskMoney(): String{
  * */
 
 
-fun <T> T.moneyWithoutMask(): BigDecimal {
+fun <T: Any> T.moneyWithoutMask(): BigDecimal {
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
     _brFormat.minimumFractionDigits = 2
     try {
@@ -55,7 +55,7 @@ fun <T> T.moneyWithoutMask(): BigDecimal {
 /**
  * método que coloca a máscara no celular considerando o ddd
  * */
-fun <T> T.phone(): String {
+fun <T: Any> T.phonePutMask(): String {
     val phone = this.toString()
         .replace("(", "")
         .replace(")", "")
@@ -75,7 +75,7 @@ fun <T> T.phone(): String {
 /**
  * método que tira a máscara do celular considerando o ddd
  * */
-fun <T> T.phoneNumber() : String {
+fun <T: Any> T.phoneWithDrawMask() : String {
     val phone = this.toString()
         .replace("(", "")
         .replace(")", "")
