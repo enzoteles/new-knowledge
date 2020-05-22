@@ -1,5 +1,6 @@
 package br.com.knowledge.capitulo1.help.innerClass
 
+import br.com.knowledge.widge.moneyMask
 import br.com.knowledge.widge.moneyWithoutMask
 import br.com.knowledge.widge.phonePutMask
 import br.com.knowledge.widge.phoneWithDrawMask
@@ -18,8 +19,8 @@ fun main(){
     println(intPlus(1, 2))
     println(2.intPlus(3))*/
 
-    val mask = "R$ 300,00"
-    println(mask.moneyWithoutMask())
+    val mask = 300
+    println(mask.moneyMask())
 
 }
 

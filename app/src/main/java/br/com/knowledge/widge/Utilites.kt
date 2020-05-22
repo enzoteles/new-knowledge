@@ -15,11 +15,11 @@ import java.util.*
  * nunca string
  * @param item
  * */
-fun <T: Number> T.moneyMask(): String{
+inline fun <T: Number> T.moneyMask(): String{
         return "R$ ${extensionMaskMoney()}"
 }
 
-private fun <T: Number> T.extensionMaskMoney(): String{
+inline fun <T: Number> T.extensionMaskMoney(): String{
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
             as DecimalFormat
     _brFormat.minimumFractionDigits = 2
@@ -40,16 +40,6 @@ private fun <T: Number> T.extensionMaskMoney(): String{
  *  recebe string e devolve um bigDecimal
  * @param item
  * */
-
-/*fun <T: Any> T.moneyWithoutMask(): BigDecimal {
-    val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-    _brFormat.minimumFractionDigits = 2
-    try {
-        return BigDecimal.valueOf(_brFormat.parse(this.toString()).toDouble())
-    } catch (ex: NumberFormatException) {
-        throw IllegalArgumentException()
-    }
-}*/
 
 inline fun <T: Any> T.moneyWithoutMask(): BigDecimal {
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
@@ -84,13 +74,14 @@ inline fun <reified T: String> T.phonePutMask(): T? {
 
 /**
  * método que tira a máscara do celular considerando o ddd
+ * @return phone
  * */
-inline fun <reified T: String> T.phoneWithDrawMask() : String {
+inline fun <reified T: String> T.phoneWithDrawMask() : T? {
     val phone = (this)
         .replace("(", "")
         .replace(")", "")
         .replace("-", "")
         .replace(" ", "")
         .replace("+", "")
-    return  phone
+    return  phone as T?
 }
