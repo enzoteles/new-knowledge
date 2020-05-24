@@ -3,11 +3,21 @@ package br.com.knowledge.capitulo1.help.inlinefunctions
 
 fun main(){
 
-    EnzoTeles(36)
+    /*EnzoTeles(36)
         .woman("Daniele")
         .build {
             println("$it")
-        }
+        }*/
+
+    configureTextView("enzo","de","carvalho","teles")
+}
+
+
+fun configureTextView(vararg text: String){
+
+    println(text[0])
+    println(text[3])
+
 
 }
 
@@ -41,3 +51,11 @@ inline fun fullName(name: String, sobrenome: String, result: (String) -> Unit){
     result("$name - $sobrenome")
 }
 
+
+/*//parametro crossinline
+inline fun f(crossinline body: () -> Unit) {
+    val f = object: Runnable {
+        override fun run() = body()
+    }
+    // ...
+}*/

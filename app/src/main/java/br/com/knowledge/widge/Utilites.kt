@@ -85,3 +85,17 @@ inline fun <reified T: String> T.phoneWithDrawMask() : T? {
         .replace("+", "")
     return  phone as T?
 }
+
+/**
+ * método que printa o nome de uma valor de um Enum
+ * */
+inline fun<reified T: Enum<T>> printValueOf(item:String): String{
+    return enumValueOf<T>(item).toString()
+}
+
+/**
+ * método que printa o nome de todos os valores de um Enum
+ * * */
+inline fun<reified T: Enum<T>> printAllValue(item:String): String{
+    return enumValues<T>().joinToString {it.name}
+}
