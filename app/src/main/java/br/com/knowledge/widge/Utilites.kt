@@ -15,11 +15,11 @@ import java.util.*
  * nunca string
  * @param item
  * */
-inline fun <T: Number> T.moneyMask(): String{
+fun <T: Number> T.moneyMask(): String{
         return "R$ ${extensionMaskMoney()}"
 }
 
-inline fun <T: Number> T.extensionMaskMoney(): String{
+fun <T: Number> T.extensionMaskMoney(): String{
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
             as DecimalFormat
     _brFormat.minimumFractionDigits = 2
@@ -41,7 +41,7 @@ inline fun <T: Number> T.extensionMaskMoney(): String{
  * @param item
  * */
 
-inline fun <T: Any> T.moneyWithoutMask(): BigDecimal {
+fun <T: Any> T.moneyWithoutMask(): BigDecimal {
     val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
     _brFormat.minimumFractionDigits = 2
     try {
