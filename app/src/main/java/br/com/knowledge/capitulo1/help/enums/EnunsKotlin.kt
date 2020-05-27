@@ -10,9 +10,10 @@ import kotlinx.android.synthetic.main.capitulo8_hotel_details.*
 
 fun main(){
 
-    println(printAllValue<RGB>("BLUE"))
+    println(printAllValue<RGB>())
 
     println(printValueOf<RGB>("PINK"))
+
 
 
 }

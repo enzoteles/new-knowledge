@@ -96,6 +96,6 @@ inline fun<reified T: Enum<T>> printValueOf(item:String): String{
 /**
  * método que printa o nome de todos os valores de um Enum
  * * */
-inline fun<reified T: Enum<T>> printAllValue(item:String): String{
+inline fun<reified T: Enum<T>> printAllValue(): String{
     return enumValues<T>().joinToString {it.name}
 }
