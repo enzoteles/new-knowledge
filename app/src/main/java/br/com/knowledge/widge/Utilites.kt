@@ -63,20 +63,20 @@ fun <T: Any> T.moneyWithoutMask(): BigDecimal {
 /**
  * método que coloca a máscara no celular considerando o ddd
  * */
-inline fun <reified T: String> T.phonePutMask(): T? {
-    val phone = (this)
+inline fun <reified T: CharSequence> T.phonePutMask(): T? {
+    val _phone = (this as String)
         .replace("(", "")
         .replace(")", "")
         .replace("-", "")
         .replace(" ", "")
         .replace("+", "")
-    if (phone.length < 10 || phone.length > 11) {
+    if (_phone.length < 10 || _phone.length > 11) {
         return "" as T?
     }
-    return if (phone.length == 10) {
-        String.format("(%s) %s-%s", phone.substring(0, 2), phone.substring(2, 6), phone.substring(6, phone.length)) as T?
+    return if (_phone.length == 10) {
+        String.format("(%s) %s-%s", _phone.substring(0, 2), _phone.substring(2, 6), _phone.substring(6, _phone.length)) as T?
     } else {
-        String.format("(%s) %s-%s", phone.substring(0, 2), phone.substring(2, 7), phone.substring(7, phone.length)) as T?
+        String.format("(%s) %s-%s", _phone.substring(0, 2), _phone.substring(2, 7), _phone.substring(7, _phone.length)) as T?
     }
 }
 
@@ -84,14 +84,14 @@ inline fun <reified T: String> T.phonePutMask(): T? {
  * método que tira a máscara do celular considerando o ddd
  * @return phone
  * */
-inline fun <reified T: String> T.phoneWithDrawMask() : T? {
-    val phone = (this)
+inline fun <reified T: CharSequence> T.phoneWithDrawMask() : T? {
+    val _phone = (this as String)
         .replace("(", "")
         .replace(")", "")
         .replace("-", "")
         .replace(" ", "")
         .replace("+", "")
-    return  phone as T?
+    return  _phone as T?
 }
 
 //#########################################################
