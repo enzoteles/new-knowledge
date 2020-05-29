@@ -69,44 +69,6 @@ class MainFragment : Fragment(), MainContract.View {
         tv_bandeiras.setText(texto)
     }
 
-    private fun getTextFinal(): CharSequence? {
-
-        var textFinal = SpannableStringBuilder()
-
-        val string01 = "A bandeira selecionada será"
-        val string02 = "transferida"
-        val string03 = "para a nova conta, ou seja,"
-        val string04 = "não estará mais habilidata"
-        val string05 = "na conta anterior"
-
-        textFinal.append(string01)
-            .addSpannable(TextAppearanceSpan(requireActivity(), R.style.TextBannerMigration13spAC))
-
-        textFinal.append(" ")
-
-        textFinal.append(string02)
-            .addSpannable(TextAppearanceSpan(requireActivity(), R.style.TextBannerMigration14spAC))
-
-        textFinal.append(" ")
-
-        textFinal.append(string03)
-            .addSpannable(TextAppearanceSpan(requireActivity(), R.style.TextBannerMigration13spAC))
-
-        textFinal.append(" ")
-
-        textFinal.append(string04)
-            .addSpannable(TextAppearanceSpan(requireActivity(), R.style.TextBannerMigration14spAC))
-
-        textFinal.append(" ")
-
-        textFinal.append(string05)
-            .addSpannable(TextAppearanceSpan(requireActivity(), R.style.TextBannerMigration13spAC))
-
-        textFinal.append(" ")
-
-        return  textFinal
-    }
-
     override fun showProgress() {
     }
 

@@ -1,6 +1,10 @@
 package br.com.knowledge.widge
 
+import android.text.SpannableStringBuilder
+import android.text.Spanned
 import android.text.TextUtils.replace
+import android.text.style.TextAppearanceSpan
+import br.com.knowledge.capitulo7_mvp.SpannableLink
 import java.lang.IllegalArgumentException
 import java.lang.NumberFormatException
 import java.math.BigDecimal
@@ -86,6 +90,7 @@ inline fun <reified T: String> T.phoneWithDrawMask() : T? {
     return  phone as T?
 }
 
+//#############################################################################################
 /**
  * método que printa o nome de uma valor de um Enum
  * */
@@ -98,4 +103,27 @@ inline fun<reified T: Enum<T>> printValueOf(item:String): String{
  * * */
 inline fun<reified T: Enum<T>> printAllValue(): String{
     return enumValues<T>().joinToString {it.name}
+}
+
+//#############################################################################################
+
+/**
+ * método que concatena string com seus respectivos stilos de fontes e typefaces
+ * */
+
+inline fun  <reified T:CharSequence> T.addSpannable(font: TextAppearanceSpan, clickableSpan: SpannableLink): SpannableStringBuilder {
+    val ssb = SpannableStringBuilder()
+    ssb.append(this)
+    ssb.setSpan(clickableSpan, 0, this.length, Spanned.SPAN_COMPOSING)
+    ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
+    return ssb
+}
+
+
+inline fun <reified T: CharSequence> T.addSpannable(font: TextAppearanceSpan): SpannableStringBuilder {
+
+    val ssb = SpannableStringBuilder()
+    ssb.append(this)
+    ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
+    return ssb
 }

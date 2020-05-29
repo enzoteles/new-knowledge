@@ -1,18 +1,17 @@
 package br.com.knowledge.widge
 
+import android.graphics.Typeface
 import android.os.Bundle
-import android.provider.Settings
+import android.text.Spannable
 import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
 import android.text.style.TextAppearanceSpan
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import br.com.knowledge.R
-import br.com.knowledge.capitulo1.help.fileExtensions.FunExtencionFragment
-import br.com.knowledge.capitulo1.help.fileExtensions.newInstance
 import br.com.knowledge.capitulo7_mvp.SpannableLink
 import br.com.knowledge.capitulo7_mvp.addSpannable
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.widge_example.*
 
 class WidgeActvity : AppCompatActivity() {
@@ -21,20 +20,40 @@ class WidgeActvity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.widge_example)
 
-        //txtStringBuilder.setText(configSubtitle(), TextView.BufferType.SPANNABLE)
+        //txtStringBuilder.text = configSubtitle()
+
         val cal = TestLambda("==== enzo"){
 
         }
+        //spannableStr()
+        configSubtitle()
     }
 
-    fun configSubtitle(): SpannableStringBuilder {
+    fun spannableStr(){
+        val texto = SpannableStringBuilder()
+        texto.append("Jeitos de colocar ")
+        val start = texto.length
+        texto.append("o texto negrito")
+        texto.setSpan(
+            StyleSpan(Typeface.BOLD), start,
+            texto.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        texto.append(" em um TextView")
+
+        txtStringBuilder.setText(texto)
+
+    }
+
+    fun configSubtitle(){
         val text = SpannableStringBuilder()
 
         text.append(
-            getString(R.string.txt_subtitle_motoboy_step01))
-            .addSpannable(
-                TextAppearanceSpan(this, R.style.TextBlue13sp700Normal),SpannableLink { openTerms() }
+            getString(R.string.txt_subtitle_motoboy_step01)
+                .addSpannable(
+                    TextAppearanceSpan(this, R.style.TextBlue13sp700Normal),
+                    SpannableLink { openTerms() })
         )
+
         text.append(" \n")
 
         text.append(
@@ -44,7 +63,7 @@ class WidgeActvity : AppCompatActivity() {
                     SpannableLink { openTerms() })
         )
 
-        return text
+        txtStringBuilder.setText(text)
     }
 
     private fun openTerms() {

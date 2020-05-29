@@ -12,10 +12,18 @@ fun main(){
     println(dayOrNight.day)
     println(dayOrNight.night)*/
 
-    val testeAnomimos = TesteAnomimos()
+    /*val testeAnomimos = TesteAnomimos()
     testeAnomimos.testeAnominos()
 
-    println(TesteAnomimos.getNameAnonimous())
+    println(TesteAnomimos.getNameAnonimous())*/
+
+    val listB = listOf("enzo", "teles", "sofia", "teles")
+    val list2 = listB.subList(0,2)
+
+    println(list2.size)
+
+
+
 
 
 }

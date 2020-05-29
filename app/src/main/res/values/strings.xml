@@ -26,7 +26,7 @@
     <string name="txt_aguardando_motoboy">Localizando motoboy Loggi</string>
 
     <!-- passo 02 motoboy serviço não disponível-->
-    <string name="txt_title_motoboy_unavailable">Fora do horário de funcionamento<funcionamento></funcionamento></string>
+    <string name="txt_title_motoboy_unavailable">Fora do horário de funcionamento funcionamento</string>
     <string name="txt_subtitle_motoboy_unavailable">A Loggi funciona das 08:00 às 21:59 durante toda a semana, por favor volte novamente dentro do horário de funcionamento </string>
     <string name="txt_aguardando_motoboy_unavailable">Serviço não disponível</string>
     <string name="ok" />
