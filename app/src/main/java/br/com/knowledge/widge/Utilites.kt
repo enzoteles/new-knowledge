@@ -12,6 +12,9 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
+//#########################################################
+//                  MASK MONEY
+//#########################################################
 /**
  * esse método coloca mascara de dinheiro em real
  * método só pode receber valores  que estão abaixo de Number, tipo:
@@ -37,7 +40,6 @@ fun <T: Number> T.extensionMaskMoney(): String{
     }
 
 }
-//#########################################################
 
 /**
  * método que tira a máscara de dinheiro da string
@@ -54,6 +56,8 @@ fun <T: Any> T.moneyWithoutMask(): BigDecimal {
         throw IllegalArgumentException()
     }
 }
+//#########################################################
+//                  MASK PHONE
 //#########################################################
 
 /**
@@ -90,7 +94,9 @@ inline fun <reified T: String> T.phoneWithDrawMask() : T? {
     return  phone as T?
 }
 
-//#############################################################################################
+//#########################################################
+//                  ENUM GENERIC FIND
+//#########################################################
 /**
  * método que printa o nome de uma valor de um Enum
  * */
@@ -105,7 +111,9 @@ inline fun<reified T: Enum<T>> printAllValue(): String{
     return enumValues<T>().joinToString {it.name}
 }
 
-//#############################################################################################
+//#########################################################
+//                  SPANNABLE STRING
+//#########################################################
 
 /**
  * método que concatena string com seus respectivos stilos de fontes e typefaces
