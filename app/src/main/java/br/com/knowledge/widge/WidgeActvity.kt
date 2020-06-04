@@ -10,8 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.knowledge.R
 import br.com.knowledge.capitulo7_mvp.SpannableLink
-import br.com.knowledge.capitulo7_mvp.addSpannable
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.widge_example.*
 
 class WidgeActvity : AppCompatActivity() {

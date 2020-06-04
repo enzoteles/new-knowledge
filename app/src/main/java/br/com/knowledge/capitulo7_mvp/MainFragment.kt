@@ -48,14 +48,6 @@ class MainFragment : Fragment(), MainContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-      /*  val texto = "Jeitos de colocar <b>o texto negrito</b> em um TextView"
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            tv_bandeiras.setText(Html.fromHtml(texto, Html.FROM_HTML_MODE_LEGACY))
-        } else {
-            tv_bandeiras.setText(Html.fromHtml(texto))
-        }*/
-
         val texto = SpannableStringBuilder()
         texto.append("Jeitos de colocar ")
         val start = texto.length
