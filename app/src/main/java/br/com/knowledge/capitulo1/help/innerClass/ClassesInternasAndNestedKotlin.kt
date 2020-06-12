@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentHostCallback
 import br.com.knowledge.R
 import br.com.knowledge.capitulo7_mvp.SpannableLink
-import br.com.knowledge.capitulo7_mvp.addSpannable
 import br.com.knowledge.widge.moneyMask
 import br.com.knowledge.widge.moneyWithoutMask
 import br.com.knowledge.widge.phonePutMask

@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.knowledge.R
 import br.com.knowledge.capitulo7_mvp.SpannableLink
-import br.com.knowledge.capitulo7_mvp.addSpannable
 
 
 class InvokeActiivity : AppCompatActivity() {
