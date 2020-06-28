@@ -1,4 +1,4 @@
-package br.com.knowledge.widge
+package br.com.knowledge.capitulo1.help.higherOrderFunction
 
 import android.os.Bundle
 import android.os.Handler
@@ -23,6 +23,7 @@ class WidgeActvity : AppCompatActivity(), OnWidgeActvity.View {
             finished = {hideProgress()},
             failure = {Toast.makeText(this, "error", Toast.LENGTH_LONG).show()}
         )
+
     }
 
 
@@ -71,6 +72,7 @@ class PresenterHigher(var mView: OnWidgeActvity.View) {
         })
 
     }
+
 
 }
 
