@@ -1,5 +1,6 @@
 package br.com.knowledge.widge
 
+import android.app.Activity
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.TextUtils.replace
@@ -135,3 +136,30 @@ inline fun <reified T: CharSequence> T.addSpannable(font: TextAppearanceSpan): S
     ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
     return ssb
 }
+
+
+fun Activity.addMaskCpforCnpj(textoAFormatar: String, mask: String): String {
+    var formatado = ""
+    var i = 0
+    // vamos iterar a mascara, para descobrir quais caracteres vamos adicionar e quando...
+    for (m in mask.toCharArray()) {
+        if (m != '#') { // se não for um #, vamos colocar o caracter informado na máscara
+            formatado += m
+            continue
+        }
+        // Senão colocamos o valor que será formatado
+        try {
+            formatado += textoAFormatar[i]
+        } catch (e: Exception) {
+            break
+        }
+
+        i++
+    }
+    return formatado
+}
+
+//how user
+//<string name="mask_cpf_step4">###.###.###-##</string>
+//    <string name="mask_cnpj_step4">##.###.###/####-##</string>
+//text_cnpj.text = addMaskCpforCnpj(cnpj, getString(R.string.mask_cnpj_step4))
