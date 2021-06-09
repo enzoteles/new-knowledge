@@ -1,5 +1,7 @@
 package br.com.knowledge.capitulo1.help.inlinefunctions
 
+import android.util.Log
+
 
 fun main(){
 
@@ -9,15 +11,7 @@ fun main(){
             println("$it")
         }*/
 
-    configureTextView("enzo","de","carvalho","teles")
-}
-
-
-fun configureTextView(vararg text: String){
-
-    println(text[0])
-    println(text[3])
-
+    Log.i("Enzo", "teles")
 
 }
 
