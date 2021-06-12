@@ -148,29 +148,8 @@ inline fun<reified T: Enum<T>> printAllValue(): String{
 }
 
 //#########################################################
-//                  SPANNABLE STRING
+//                  MASK CPF AND CNPJ
 //#########################################################
-
-/**
- * método que concatena string com seus respectivos stilos de fontes e typefaces
- * */
-
-inline fun  <reified T:CharSequence> T.addSpannable(font: TextAppearanceSpan, clickableSpan: SpannableLink): SpannableStringBuilder {
-    val ssb = SpannableStringBuilder()
-    ssb.append(this)
-    ssb.setSpan(clickableSpan, 0, this.length, Spanned.SPAN_COMPOSING)
-    ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
-    return ssb
-}
-
-
-inline fun <reified T: CharSequence> T.addSpannable(font: TextAppearanceSpan): SpannableStringBuilder {
-
-    val ssb = SpannableStringBuilder()
-    ssb.append(this)
-    ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
-    return ssb
-}
 
 
 fun <T:String> T.extensionaAddMaskCpforCnpj(): String {
@@ -201,5 +180,29 @@ fun getMask(length: Int): String {
     return if(length == 11) "###.###.###-##" else "##.###.###/####-##"
 }
 
+//#########################################################
+//                  SPANNABLE STRING
+//#########################################################
+
+/**
+ * método que concatena string com seus respectivos stilos de fontes e typefaces
+ * */
+
+inline fun  <reified T:CharSequence> T.addSpannable(font: TextAppearanceSpan, clickableSpan: SpannableLink): SpannableStringBuilder {
+    val ssb = SpannableStringBuilder()
+    ssb.append(this)
+    ssb.setSpan(clickableSpan, 0, this.length, Spanned.SPAN_COMPOSING)
+    ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
+    return ssb
+}
+
+
+inline fun <reified T: CharSequence> T.addSpannable(font: TextAppearanceSpan): SpannableStringBuilder {
+
+    val ssb = SpannableStringBuilder()
+    ssb.append(this)
+    ssb.setSpan(font, 0, this.length, Spanned.SPAN_COMPOSING)
+    return ssb
+}
 
 
