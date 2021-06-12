@@ -17,22 +17,22 @@ fun main() {
     print(moneyDouble.extensionMaskMoney())
     print("\n")
     val money = "R$ 3,00"
-    print(money.extentionMoneyWithoutMask())
+    print(money.extensionMoneyWithoutMask())
     print("\n")
     //só faz a máscara se tiver o ddd
     val phone = "11995726673"
-    print(phone.extentionPhonePutMask())
+    print(phone.extensionPhonePutMask())
     print("\n")
     val phoneWithMask = "(11) 99572-6673"
-    print(phoneWithMask.extentionPhoneWithDrawMask())
+    print(phoneWithMask.extensionPhoneWithDrawMask())
     print("\n")
     //só faz a máscara se o cpf estiver em string
     val cpf = 72257369220
     val cnpj = "03476731000104"
-    print(cpf.toString().extentionaAddMaskCpforCnpj())
+    print(cpf.toString().extensionaAddMaskCpforCnpj())
     print("\n")
     //só faz a máscara se o cpnj estiver em string
-    print(cnpj.extentionaAddMaskCpforCnpj())
+    print(cnpj.extensionaAddMaskCpforCnpj())
 
 
 
@@ -73,7 +73,7 @@ fun <T: Number> T.extensionMaskMoney(): String{
  *  recebe string e devolve um bigDecimal
  * @param item
  * */
-fun <T:String> T.extentionMoneyWithoutMask(): BigDecimal? {
+inline fun <reified T:CharSequence> T.extensionMoneyWithoutMask(): BigDecimal? {
     val replaceable = java.lang.String.format("[%s,.\\s]", getCurrencySymbol())
     val cleanString = this.replace(replaceable.toRegex(), "")
     return try {
@@ -99,7 +99,7 @@ fun getCurrencySymbol(): String? {
 /**
  * método que coloca a máscara no celular considerando o ddd
  * */
-inline fun <reified T: CharSequence> T.extentionPhonePutMask(): T? {
+inline fun <reified T> T.extensionPhonePutMask(): T? {
     val _phone = (this as String)
         .replace("(", "")
         .replace(")", "")
@@ -120,7 +120,7 @@ inline fun <reified T: CharSequence> T.extentionPhonePutMask(): T? {
  * método que tira a máscara do celular considerando o ddd
  * @return phone
  * */
-inline fun <reified T: CharSequence> T.extentionPhoneWithDrawMask() : T? {
+inline fun <reified T> T.extensionPhoneWithDrawMask() : T? {
     val _phone = (this as String)
         .replace("(", "")
         .replace(")", "")
@@ -173,28 +173,7 @@ inline fun <reified T: CharSequence> T.addSpannable(font: TextAppearanceSpan): S
 }
 
 
-fun addMaskCpforCnpj(textoAFormatar: String, mask: String): String {
-    var formatado = ""
-    var i = 0
-    // vamos iterar a mascara, para descobrir quais caracteres vamos adicionar e quando...
-    for (m in mask.toCharArray()) {
-        if (m != '#') { // se não for um #, vamos colocar o caracter informado na máscara
-            formatado += m
-            continue
-        }
-        // Senão colocamos o valor que será formatado
-        try {
-            formatado += textoAFormatar[i]
-        } catch (e: Exception) {
-            break
-        }
-
-        i++
-    }
-    return formatado
-}
-
-fun <T:String> T.extentionaAddMaskCpforCnpj(): String {
+fun <T:String> T.extensionaAddMaskCpforCnpj(): String {
 
     val mask = getMask(this.length)
 
