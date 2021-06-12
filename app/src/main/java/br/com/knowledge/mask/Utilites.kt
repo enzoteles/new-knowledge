@@ -26,10 +26,12 @@ fun main() {
     val phoneWithMask = "(11) 99572-6673"
     print(phoneWithMask.extentionPhoneWithDrawMask())
     print("\n")
+    //só faz a máscara se o cpf estiver em string
     val cpf = 72257369220
     val cnpj = "03476731000104"
     print(cpf.toString().extentionaAddMaskCpforCnpj())
     print("\n")
+    //só faz a máscara se o cpnj estiver em string
     print(cnpj.extentionaAddMaskCpforCnpj())
 
 
@@ -222,7 +224,3 @@ fun getMask(length: Int): String {
 
 
 
-//how user
-//<string name="mask_cpf_step4">###.###.###-##</string>
-//    <string name="mask_cnpj_step4">##.###.###/####-##</string>
-//text_cnpj.text = addMaskCpforCnpj(cnpj, getString(R.string.mask_cnpj_step4))
