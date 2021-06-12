@@ -1,7 +1,6 @@
 package br.com.knowledge.kotlinTutorial
 
 import br.com.knowledge.widge.moneyMask
-import br.com.knowledge.widge.moneyWithoutMask
 
 
 class Example{

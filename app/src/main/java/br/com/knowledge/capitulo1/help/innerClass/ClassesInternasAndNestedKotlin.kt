@@ -8,9 +8,6 @@ import androidx.fragment.app.FragmentHostCallback
 import br.com.knowledge.R
 import br.com.knowledge.capitulo7_mvp.SpannableLink
 import br.com.knowledge.widge.moneyMask
-import br.com.knowledge.widge.moneyWithoutMask
-import br.com.knowledge.widge.phonePutMask
-import br.com.knowledge.widge.phoneWithDrawMask
 
 /**
  * quando coloca a palavra reservada inner em uma classes

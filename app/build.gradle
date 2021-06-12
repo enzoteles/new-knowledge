@@ -73,8 +73,3 @@ dependencies {
 
     implementation "br.com.concrete:canarinho:2.0.0"
 }
-compileKotlin {
-    kotlinOptions {
-        languageVersion = "1.4"
-    }
-}

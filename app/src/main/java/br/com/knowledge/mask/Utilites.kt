@@ -3,16 +3,39 @@ package br.com.knowledge.widge
 import android.app.Activity
 import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.text.TextUtils.replace
 import android.text.style.TextAppearanceSpan
 import br.com.knowledge.capitulo7_mvp.SpannableLink
-import java.lang.IllegalArgumentException
-import java.lang.NumberFormatException
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
+
+fun main() {
+    //examplo de como usar
+    val moneyDouble = 4.0
+    print(moneyDouble.extensionMaskMoney())
+    print("\n")
+    val money = "R$ 3,00"
+    print(money.extentionMoneyWithoutMask())
+    print("\n")
+    //só faz a máscara se tiver o ddd
+    val phone = "11995726673"
+    print(phone.extentionPhonePutMask())
+    print("\n")
+    val phoneWithMask = "(11) 99572-6673"
+    print(phoneWithMask.extentionPhoneWithDrawMask())
+    print("\n")
+    val cpf = 72257369220
+    val cnpj = "03476731000104"
+    print(cpf.toString().extentionaAddMaskCpforCnpj())
+    print("\n")
+    print(cnpj.extentionaAddMaskCpforCnpj())
+
+
+
+
+}
 //#########################################################
 //                  MASK MONEY
 //#########################################################
@@ -42,21 +65,31 @@ fun <T: Number> T.extensionMaskMoney(): String{
 
 }
 
+
 /**
  * método que tira a máscara de dinheiro da string
  *  recebe string e devolve um bigDecimal
  * @param item
  * */
-
-fun <T: Any> T.moneyWithoutMask(): BigDecimal {
-    val _brFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-    _brFormat.minimumFractionDigits = 2
-    try {
-        return BigDecimal.valueOf(_brFormat.parse(this.toString()).toDouble())
-    } catch (ex: NumberFormatException) {
-        throw IllegalArgumentException()
+fun <T:String> T.extentionMoneyWithoutMask(): BigDecimal? {
+    val replaceable = java.lang.String.format("[%s,.\\s]", getCurrencySymbol())
+    val cleanString = this.replace(replaceable.toRegex(), "")
+    return try {
+        BigDecimal(cleanString).setScale(
+            2, BigDecimal.ROUND_FLOOR
+        ).divide(BigDecimal(100), BigDecimal.ROUND_FLOOR)
+    } catch (e: NumberFormatException) {
+        //ao apagar todos valores de uma só vez dava erro
+        //Com a exception o valor retornado é 0.00
+        BigDecimal(0)
     }
 }
+
+fun getCurrencySymbol(): String? {
+    return NumberFormat.getCurrencyInstance(Locale.getDefault()).currency.symbol
+}
+
+
 //#########################################################
 //                  MASK PHONE
 //#########################################################
@@ -64,7 +97,7 @@ fun <T: Any> T.moneyWithoutMask(): BigDecimal {
 /**
  * método que coloca a máscara no celular considerando o ddd
  * */
-inline fun <reified T: CharSequence> T.phonePutMask(): T? {
+inline fun <reified T: CharSequence> T.extentionPhonePutMask(): T? {
     val _phone = (this as String)
         .replace("(", "")
         .replace(")", "")
@@ -85,7 +118,7 @@ inline fun <reified T: CharSequence> T.phonePutMask(): T? {
  * método que tira a máscara do celular considerando o ddd
  * @return phone
  * */
-inline fun <reified T: CharSequence> T.phoneWithDrawMask() : T? {
+inline fun <reified T: CharSequence> T.extentionPhoneWithDrawMask() : T? {
     val _phone = (this as String)
         .replace("(", "")
         .replace(")", "")
@@ -138,7 +171,7 @@ inline fun <reified T: CharSequence> T.addSpannable(font: TextAppearanceSpan): S
 }
 
 
-fun Activity.addMaskCpforCnpj(textoAFormatar: String, mask: String): String {
+fun addMaskCpforCnpj(textoAFormatar: String, mask: String): String {
     var formatado = ""
     var i = 0
     // vamos iterar a mascara, para descobrir quais caracteres vamos adicionar e quando...
@@ -158,6 +191,36 @@ fun Activity.addMaskCpforCnpj(textoAFormatar: String, mask: String): String {
     }
     return formatado
 }
+
+fun <T:String> T.extentionaAddMaskCpforCnpj(): String {
+
+    val mask = getMask(this.length)
+
+    var formatado = ""
+    var i = 0
+    // vamos iterar a mascara, para descobrir quais caracteres vamos adicionar e quando...
+    for (m in mask.toCharArray()) {
+        if (m != '#') { // se não for um #, vamos colocar o caracter informado na máscara
+            formatado += m
+            continue
+        }
+        // Senão colocamos o valor que será formatado
+        try {
+            formatado += this[i]
+        } catch (e: Exception) {
+            break
+        }
+
+        i++
+    }
+    return formatado
+}
+
+fun getMask(length: Int): String {
+    return if(length == 11) "###.###.###-##" else "##.###.###/####-##"
+}
+
+
 
 //how user
 //<string name="mask_cpf_step4">###.###.###-##</string>
