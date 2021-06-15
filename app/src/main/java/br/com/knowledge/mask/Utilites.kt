@@ -1,6 +1,6 @@
 package br.com.knowledge.widge
 
-import android.app.Activity
+import android.annotation.SuppressLint
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.TextAppearanceSpan
@@ -8,6 +8,7 @@ import br.com.knowledge.capitulo7_mvp.SpannableLink
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -33,6 +34,13 @@ fun main() {
     print("\n")
     //só faz a máscara se o cpnj estiver em string
     print(cnpj.extensionaAddMaskCpforCnpj())
+    print("\n")
+    //mask date
+    val dd= "2013-09-29T18:46:19Z"
+    val format = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    print(dd.formateDateGeneric(format))
+
+
 
 
 
@@ -180,6 +188,20 @@ fun getMask(length: Int): String {
     return if(length == 11) "###.###.###-##" else "##.###.###/####-##"
 }
 
+
+//#########################################################
+//                  DATE FORMAT
+//#########################################################
+@SuppressLint("NewApi")
+// usar a palavra inflix quando tiver apenas uma parametro no método
+// palavra inline é para criar uma cópia do método, diferente do método comum que cria um objeto
+//a palavra reified é para acessar o Parametro genérico passado no método, com isso não precisa de cast
+inline infix fun <reified T:CharSequence> T.formateDateGeneric(format: String): T? {
+    val currentLocalDt = DateTimeFormatter
+        .ofPattern(format)
+        .parse(this)
+    return DateTimeFormatter.ofPattern("dd/MM/yyyy").format(currentLocalDt) as T?
+}
 //#########################################################
 //                  SPANNABLE STRING
 //#########################################################
