@@ -38,7 +38,7 @@ fun main() {
     //mask date
     val dd= "2013-09-29T18:46:19Z"
     val format = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-    print(dd.formateDateGeneric(format))
+    print(dd formateDateGeneric format) // function infix
 
 
 
