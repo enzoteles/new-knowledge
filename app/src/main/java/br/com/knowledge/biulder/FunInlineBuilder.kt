@@ -31,9 +31,10 @@ class EnzoTeles{
     }
 
     //a função inline cria uma cópia do método , diferente da função comum que cria um objeto na memória
+    // a palavra crossinline é para poder usar uma hight order function como parâmetro
     inline fun build(crossinline result: (String) -> Unit){
         val task =  Runnable {
-            if(this.age!! == 37 )result("Enzo Teles") else result("Teles")
+            if(this.age == 37 )result("Enzo Teles") else result("Teles")
         }
         task.run()
     }
