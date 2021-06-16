@@ -23,7 +23,7 @@ class Capitulo2_TabLayout : AppCompatActivity() {
 
         viewPager = findViewById(R.id.viewPager) as ViewPager
         viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
-        viewPager!!.adapter = viewPagerAdapter
+        viewPager?.adapter = viewPagerAdapter
         tabLayout?.setupWithViewPager(viewPager)
 
         tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

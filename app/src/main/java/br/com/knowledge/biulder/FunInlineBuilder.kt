@@ -41,20 +41,3 @@ class EnzoTeles{
 }
 
 
-val s = fun(a: Int, b: Int, result: (Int) -> Unit) {
-    result(a+b)
-}
-
-
-inline fun fullName(name: String, sobrenome: String, result: (String) -> Unit){
-    result("$name - $sobrenome")
-}
-
-
-/*//parametro crossinline
-inline fun f(crossinline body: () -> Unit) {
-    val f = object: Runnable {
-        override fun run() = body()
-    }
-    // ...
-}*/
