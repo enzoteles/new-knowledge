@@ -14,8 +14,8 @@ fun main() {
         this.numeroCamisa = 1
     }
 
-    jogador?.let {
-        with(it){
+    jogador?.let { // verificadr se o objeto está null
+        with(it){ // pega o objeto
             this.also { jog->
                 //also troca o objeto
                 jog.nome = "daniele"
@@ -29,8 +29,12 @@ fun main() {
         print(this)
     }
 
-    var idade = (jogador.age?.let { it } ?: run { 32 }).apply { print(this) }
+    (jogador.age?.let { it } ?: run { 32 }).apply { print(this) }
 
+    //exemplo de apply e run
+    /*mRepository.hotelById(id) { hotel ->
+        hotel?.apply { mView.showHotelDetails(this) }?:run { mView.errorHotelNotFound() }
+    }*/
 
 }
 
